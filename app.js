@@ -3,7 +3,8 @@
 let express = require('express');
 let app = express();
 let server = require('http').createServer(app);
-let port = process.argv[2] || 8080;
+let port = 8080;
+let API_KEY = process.argv[2] || false;
 
 let request = require('request');
 
@@ -29,6 +30,8 @@ app.get('/', function(req, res) {
         &markers=color:green%7Clabel:O%7C${pickUp}
         &markers=color:red%7Clabel:D%7C${dropOff}
         &${polyline(points)}`;
+
+        API_KEY ? hostString += `&key=${API_KEY}` : false;
 
         request.get(hostString).pipe(res);
     }catch(e){
