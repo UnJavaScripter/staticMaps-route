@@ -1,6 +1,8 @@
 # Wut?
 
-This is a interface to generate static maps from **Google Maps**.
+This is a interface to generate polylines with **Google Static Maps**.
+
+![](./demo.png)
 
 # Why?
 
